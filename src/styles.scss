@@ -1,1 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
+
 /* You can add global styles to this file, and also import other style files */
+*{
+    padding: 0;
+    margin: 0;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mdc-text-field
+{
+    background-color: transparent !important;
+}
+
+
+
+.button
+{
+    padding: 15px 20px 15px 20px;
+    font-size: 15px;
+    border: 1px solid transparent;
+    background-color: #ff5d3d;
+    color: white;
+    border-radius: 10px;
+    transition: all 0.3s;
+
+    &:hover
+    {
+        cursor: pointer;
+        background: transparent;
+        border: 1px solid #ff5d3d;
+        color: lighten(#ff5d3d, 10)
+    }
+}
+
+
+#snow
+{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

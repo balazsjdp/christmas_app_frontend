@@ -1,0 +1,78 @@
+
+
+h1{
+    font-family: 'Mountains of Christmas', serif;
+    color: #ff5d3d;
+    font-size: 70px;
+    text-shadow: 3px 2px 7px rgba(0,0,0,0.48);
+}
+
+div{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.card
+{
+    position: absolute;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.67);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+:root {
+    --arrow-bg: rgba(255, 255, 255, 0.3);
+    --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+    --option-bg: white;
+    --select-bg: rgba(255, 255, 255, 0.2);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+select {
+    /* Reset */
+    appearance: none;
+    margin-top: 3rem;
+    font-size: 20px;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    text-align: center;
+    font-weight: 800;
+    /* Personalize */
+    width: 100%;
+    padding: 1rem 1rem 1rem 1rem;
+    background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg) no-repeat right 0.8em center / 1.4em,
+      linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+    color: white;
+    border-radius: 0.25em;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    /* Remove IE arrow */
+    &::-ms-expand {
+      display: none;
+    }
+    /* Remove focus outline */
+    &:focus {
+      outline: none;
+    }
+    /* <option> colors */
+    option {
+      color: inherit;
+      background-color: var(--option-bg);
+    }
+  }
+
+  button{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }

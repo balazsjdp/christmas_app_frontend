@@ -30,9 +30,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.scss",
+              "src/theme.scss",
+              "node_modules/pure-snow.js/style.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/pure-snow.js/pure-snow.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -90,6 +95,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []

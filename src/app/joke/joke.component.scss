@@ -1,0 +1,30 @@
+:host
+{
+    display: inline;
+    color: white;
+    text-shadow: 3px 2px 7px rgba(0,0,0,0.48);
+    position:absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0 10px 0;
+
+
+}
+
+h3,p {
+    font-family: "Mountains of Christmas", serif;
+    font-weight: 800;
+}
+
+h3{
+    font-size: 24px;
+
+}
+
+p{
+    font-size: 20px;
+}
