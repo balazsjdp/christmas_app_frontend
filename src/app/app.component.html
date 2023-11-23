@@ -1,9 +1,9 @@
 <div id="snow"></div>
 
 <div class="container">
+  <app-user-selector (showNext)="onShowNext($event)"  *ngIf="step() === 0"></app-user-selector>
+  <app-draw [userName]="name()" *ngIf="step() === 1"></app-draw>
   <app-joke></app-joke>
-  <app-user-selector (showNext)="onShowNext()"  *ngIf="step() === 0"></app-user-selector>
-  <app-draw *ngIf="step() === 1"></app-draw>
- 
+  <img class="santaHat" src="../assets/santa_hat.webp" alt="">
 </div>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, WritableSignal, inject, signal } from '@angular/core';
+import { Component, Input, OnInit, WritableSignal, inject, signal } from '@angular/core';
 import { CommonModule, UpperCasePipe } from '@angular/common';
 import { ApiService } from '../service/api.service';
 import { NoteComponent } from '../note/note.component';
@@ -17,6 +17,8 @@ export class DrawComponent implements OnInit {
   drawnName : string = '';
   canClick : boolean = true;
 
+  @Input() userName : string = '';
+
   ngOnInit(): void {
     this.#apiService.getNames().subscribe((names) => {
       this.names = names;
@@ -34,7 +36,7 @@ export class DrawComponent implements OnInit {
 
     this.clickedCardIndex.set(i);
     // TODO : Átadni a nevet 
-    this.#apiService.drawName('Balázs').subscribe((name) => {
+    this.#apiService.drawName(this.userName).subscribe((name) => {
       this.drawnName = name;
       this.canClick = false;
     })

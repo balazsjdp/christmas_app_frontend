@@ -1,5 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostBinding, Inject, OnInit, inject } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { ApiService } from '../service/api.service';
 
 @Component({
@@ -26,7 +26,6 @@ export class JokeComponent implements OnInit {
       })
     }, 5000)
   }
-
 
 
 }

@@ -18,7 +18,7 @@ export class UserSelectorComponent implements OnInit {
   selectedName : string | null = null;
   selectionValid : boolean = false;
   
-  @Output() showNext = new EventEmitter<boolean>;
+  @Output() showNext = new EventEmitter<string>;
 
   ngOnInit(): void {
     this.#apiService.getNames().subscribe((names) => {
@@ -46,7 +46,7 @@ export class UserSelectorComponent implements OnInit {
 
     if(this.selectedName !== '0' && this.selectedName !== null)
     {
-      this.showNext.emit(true);
+      this.showNext.emit(this.selectedName);
     }
   }
 

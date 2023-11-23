@@ -14,10 +14,12 @@ import { DrawComponent } from './draw/draw.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-    step = signal(1);
+    step = signal(0);
+    name = signal('');
 
-    onShowNext()
+    onShowNext(name : string)
     {
+      this.name.set(name);
       this.step.update(s => s + 1);
     }
 }
