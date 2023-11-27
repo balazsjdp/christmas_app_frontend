@@ -1,4 +1,4 @@
-import { Component,HostListener, Input, OnInit } from '@angular/core';
+import { Component,HostListener, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,21 +8,29 @@ import { CommonModule } from '@angular/common';
   templateUrl: './note.component.html',
   styleUrl: './note.component.scss'
 })
-export class NoteComponent implements OnInit {
+export class NoteComponent  {
   @Input() name : string = '';
-  @Input() fold : boolean = false;
+  @Input() canClick : boolean = true;
+  @Input() fadeOut : boolean = false;
+
+  selected : boolean = false;
+  flipped : boolean = false;
 
   constructor()
   {
     console.log("created")
+
   }
 
-  ngOnInit(): void {
-    console.log(this.name)
-  }
 
   @HostListener("click") onClick(){
-    //console.log("User Click using Host Listener")
+    if(!this.canClick) return;
+    
+    this.selected =  true;
+
+    setTimeout(() => {
+      this.flipped = true;
+    }, 2000);
   }
 
 

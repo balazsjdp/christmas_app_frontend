@@ -2,11 +2,9 @@
 
 @for(item of [].constructor(11); track $index)
 {
-    @if($index === clickedCardIndex())
-    {
-        <app-note [fold]="true" [name]="drawnName" (click)="onNoteClick($index)"></app-note>
-    }@else{
-        <app-note (click)="onNoteClick($index)"></app-note>
-    }
+
+
+    <app-note [canClick]="canClick" [fadeOut]="clickedCardIndex() !== $index && !canClick" [name]="drawnName" (click)="onNoteClick($index)"></app-note>
+
 }
 

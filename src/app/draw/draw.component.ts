@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, WritableSignal, inject, signal } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, WritableSignal, inject, signal } from '@angular/core';
 import { CommonModule, UpperCasePipe } from '@angular/common';
 import { ApiService } from '../service/api.service';
 import { NoteComponent } from '../note/note.component';
@@ -35,11 +35,10 @@ export class DrawComponent implements OnInit {
     if(!this.canClick) return;
 
     this.clickedCardIndex.set(i);
-    // TODO : Átadni a nevet 
     this.#apiService.drawName(this.userName).subscribe((name) => {
       this.drawnName = name;
       this.canClick = false;
-    })
+    }) 
   }
 
 
@@ -61,6 +60,5 @@ export class DrawComponent implements OnInit {
   
     return array;
   }
-
 
 }

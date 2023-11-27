@@ -1,10 +1,10 @@
-<div class="quote-container">
-    <i class="pin"></i>
+<div [class.card-fade-out]="fadeOut"  class="quote-container">
+    <i [class.pin-pull]="selected" [class.pin-taken]="selected" class="pin"></i>
 
 
-    <blockquote class="note yellow">
+    <blockquote [class.card-flip]="selected" [class.card-flipped]="flipped" class="note yellow">
         <img class="gift" src="assets/gift.webp" alt="" srcset="">
-        <cite *ngIf="!fold" class="author">A very nice colleague</cite>
-        <h2 *ngIf="fold">{{name}}</h2>
+        <cite *ngIf="!flipped" class="author">A very nice colleague</cite>
+        <h2 *ngIf="flipped">{{name}}</h2>
       </blockquote>
   </div>

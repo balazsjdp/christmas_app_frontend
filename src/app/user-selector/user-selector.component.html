@@ -1,6 +1,6 @@
 <h1 class="animate__animated animate__bounceInDown">Who are you?</h1>
 
-<select (change)="onNameSelected($event)" class="user-select animate__animated animate__bounceInUp" name="" id="">
+<select (change)="onNameSelected($event)" class="christmas-button animate__animated animate__bounceInUp" name="" id="">
     <option selected value="0">Click here to select</option>
     @for(name of names.sort(); track name )
     {
@@ -9,4 +9,4 @@
 </select>
 
 
-<button *ngIf="selectionValid" (click)="onNextClick()" class="button animate__animated animate__bounceInRight">Next</button>
+<button *ngIf="selectionValid" (click)="onNextClick()" class="christmas-button animate__animated animate__bounceInRight">Next</button>

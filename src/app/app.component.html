@@ -1,8 +1,9 @@
 <div id="snow"></div>
-
-<div class="container">
+<img class="tree" alt="" src="../assets/tree.png">
+<div class="dune"></div>
+<div style="z-index: 2;" class="container">
   <app-user-selector (showNext)="onShowNext($event)"  *ngIf="step() === 0"></app-user-selector>
-  <app-draw [userName]="name()" *ngIf="step() === 1"></app-draw>
+  <app-draw class="animate__animated animate__bounceInUp" [userName]="name()" *ngIf="step() === 1"></app-draw>
   <app-joke></app-joke>
   <img class="santaHat" src="../assets/santa_hat.webp" alt="">
 </div>
