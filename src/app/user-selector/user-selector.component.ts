@@ -1,8 +1,9 @@
-import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatSelectModule} from '@angular/material/select';
 import 'animate.css';
 import { ApiService } from '../service/api.service';
+import { Helper } from '../utils/helper';
 
 @Component({
   selector: 'app-user-selector',
@@ -17,8 +18,9 @@ export class UserSelectorComponent implements OnInit {
   #apiService : ApiService = inject(ApiService);
   selectedName : string | null = null;
   selectionValid : boolean = false;
-  
+  @ViewChild('userImage') userImage!: ElementRef;
   @Output() showNext = new EventEmitter<string>;
+
 
   ngOnInit(): void {
     this.#apiService.getNames().subscribe((names) => {
@@ -39,6 +41,11 @@ export class UserSelectorComponent implements OnInit {
       this.selectionValid = false;
     }
 
+    let imageName = Helper.replaceHungarianSpecialCharacters(this.selectedName!);
+    let imageFilePath = '../assets/users/' + imageName + '.jpeg';
+
+    this.userImage.nativeElement.src = imageFilePath;
+
   }
 
   onNextClick()
@@ -50,4 +57,8 @@ export class UserSelectorComponent implements OnInit {
     }
   }
 
+  handleImageError()
+  {
+    this.userImage.nativeElement.src = "../assets/users/unknown.jpeg"
+  }
 }

@@ -142,9 +142,11 @@
 
   .card-flipped
   {
-    img,cite
+    text-align: center;
+
+    .gift,cite
     {
-      visibility: hidden;
+      display: none;
     }
   }
 
@@ -161,4 +163,10 @@
   {
     animation: fadeOut 1s ease-out;
     opacity: 0;
+  }
+
+  .userImage
+  {
+    width: 100px;
+    border-radius: 100%;
   }

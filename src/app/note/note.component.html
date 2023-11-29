@@ -2,9 +2,10 @@
     <i [class.pin-pull]="selected" [class.pin-taken]="selected" class="pin"></i>
 
 
-    <blockquote [class.card-flip]="selected" [class.card-flipped]="flipped" class="note yellow">
+    <blockquote [class.card-flip]="selected" [class.card-flipped]="flipped() === true" class="note yellow">
         <img class="gift" src="assets/gift.webp" alt="" srcset="">
-        <cite *ngIf="!flipped" class="author">A very nice colleague</cite>
-        <h2 *ngIf="flipped">{{name}}</h2>
+        <img (error)="handleUserImageError()" *ngIf="flipped() === true" class="userImage" [src]="userImageSrc" alt="" srcset="">
+        <cite *ngIf="flipped() === false" class="author">A very nice colleague</cite>
+        <h2 *ngIf="flipped() === true">{{name}}</h2>
       </blockquote>
   </div>

@@ -1,5 +1,6 @@
-import { Component,HostListener, Input} from '@angular/core';
+import { Component,ElementRef,HostListener, Input, OnChanges, SimpleChanges, ViewChild, signal, effect} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Helper } from '../utils/helper';
 
 @Component({
   selector: 'app-note',
@@ -8,19 +9,33 @@ import { CommonModule } from '@angular/common';
   templateUrl: './note.component.html',
   styleUrl: './note.component.scss'
 })
-export class NoteComponent  {
+export class NoteComponent implements OnChanges {
   @Input() name : string = '';
   @Input() canClick : boolean = true;
   @Input() fadeOut : boolean = false;
 
   selected : boolean = false;
-  flipped : boolean = false;
+  flipped = signal(false);
+
+  userImageSrc = "../../assets/users/unknown.jpeg"
 
   constructor()
   {
-    console.log("created")
 
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes['name'])
+    {
+      this.userImageSrc = '../../assets/users/' + Helper.replaceHungarianSpecialCharacters(this.name) + '.jpeg';
+    }
+  }
+
+  handleUserImageError()
+  {
+      this.userImageSrc = "../../assets/users/unknown.jpeg";
+  }
+
 
 
   @HostListener("click") onClick(){
@@ -29,7 +44,7 @@ export class NoteComponent  {
     this.selected =  true;
 
     setTimeout(() => {
-      this.flipped = true;
+      this.flipped.set(true);
     }, 2000);
   }
 

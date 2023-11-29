@@ -1,4 +1,17 @@
+:host{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
+img{
+  border-radius: 100%;
+  width: 200px;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
 
 h1{
     font-family: 'Mountains of Christmas', serif;

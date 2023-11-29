@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, ViewChild, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { UserSelectorComponent } from './user-selector/user-selector.component';
@@ -14,12 +14,15 @@ import { DrawComponent } from './draw/draw.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+    fwEnabled = true;
     step = signal(0);
     name = signal('');
+
 
     onShowNext(name : string)
     {
       this.name.set(name);
       this.step.update(s => s + 1);
     }
+
 }
