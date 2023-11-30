@@ -37,3 +37,18 @@
         transform: scaleX(-1) rotate(-45deg);
     }
 }
+
+
+audio {
+    display: none;
+}
+
+.play-button
+{
+    font-size: 13px;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    padding: 10px 15px;
+    width: 140px;
+}

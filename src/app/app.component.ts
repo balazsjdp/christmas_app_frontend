@@ -1,9 +1,10 @@
-import { Component, ViewChild, signal } from '@angular/core';
+import { Component, ElementRef, ViewChild, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { UserSelectorComponent } from './user-selector/user-selector.component';
 import { JokeComponent } from './joke/joke.component';
 import { DrawComponent } from './draw/draw.component';
+
 
 
 @Component({
@@ -17,6 +18,23 @@ export class AppComponent {
     fwEnabled = true;
     step = signal(0);
     name = signal('');
+    @ViewChild('audio') audioPlayer! : ElementRef<HTMLAudioElement>;
+    playButtonContent = "Play some music :)";
+
+
+    toggleMusic()
+    {
+      if(this.audioPlayer.nativeElement.paused)
+      {
+        this.audioPlayer.nativeElement.play()
+        this.playButtonContent = "Stop the music :("
+      }
+      else
+      {
+        this.audioPlayer.nativeElement.pause();
+        this.playButtonContent = "Play some music :)";
+      }
+    }
 
 
     onShowNext(name : string)

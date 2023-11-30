@@ -2,11 +2,12 @@ import { Component, Input, OnInit, ViewChild, WritableSignal, inject, signal } f
 import { CommonModule, UpperCasePipe } from '@angular/common';
 import { ApiService } from '../service/api.service';
 import { NoteComponent } from '../note/note.component';
+import { ConfettiComponent } from '../confetti/confetti.component';
 
 @Component({
   selector: 'app-draw',
   standalone: true,
-  imports: [CommonModule, NoteComponent],
+  imports: [CommonModule, NoteComponent, ConfettiComponent],
   templateUrl: './draw.component.html',
   styleUrl: './draw.component.scss'
 })
@@ -16,6 +17,7 @@ export class DrawComponent implements OnInit {
   clickedCardIndex : WritableSignal<number|null> = signal(null);
   drawnName : string = '';
   canClick : boolean = true;
+  @ViewChild('confetti') confetti! : ConfettiComponent;
 
   @Input() userName : string = '';
 
@@ -38,7 +40,11 @@ export class DrawComponent implements OnInit {
     this.#apiService.drawName(this.userName).subscribe((name) => {
       this.drawnName = name;
       this.canClick = false;
-    }) 
+    })
+
+    setTimeout(() => {
+      this.confetti.fireChristmasConfetti();
+    }, 2000);
   }
 
 
