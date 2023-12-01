@@ -25,11 +25,6 @@ export class DrawComponent implements OnInit {
     this.#apiService.getNames().subscribe((names) => {
       this.names = names;
     })
-
-    // TODO: Remove this
-    this.#apiService.reset().subscribe(() => {
-      console.log('ok')
-    });
   }
 
   onNoteClick(i : number)
