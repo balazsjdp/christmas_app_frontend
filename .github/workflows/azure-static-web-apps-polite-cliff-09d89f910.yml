@@ -10,6 +10,14 @@ on:
       - main
 
 jobs:
+  setup_environment:
+    runs-on: ubuntu-latest
+    name: Setup environment with Nodejs 18
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # Set the desired Node.js version
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
@@ -19,10 +27,6 @@ jobs:
         with:
           submodules: true
           lfs: false
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18' # Set the desired Node.js version
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
