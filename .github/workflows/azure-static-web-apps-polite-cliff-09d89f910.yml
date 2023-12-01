@@ -11,6 +11,7 @@ on:
 
 jobs:
   setup_environment:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Setup environment with Nodejs 18
     steps:
