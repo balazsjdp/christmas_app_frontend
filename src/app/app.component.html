@@ -1,13 +1,17 @@
 <div id="snow"></div>
 <img class="tree" alt="" src="../assets/tree.png">
 <div class="dune"></div>
-<div style="z-index: 2;" class="container">
+<div *ngIf="!comingSoon" style="z-index: 2;" class="container">
   <app-user-selector (showNext)="onShowNext($event)"  *ngIf="step() === 0"></app-user-selector>
   <app-draw class="animate__animated animate__bounceInUp" [userName]="name()" *ngIf="step() === 1"></app-draw>
   <app-joke></app-joke>
   <img class="santaHat" src="../assets/santa_hat.webp" alt="">
 </div>
-
+<div *ngIf="comingSoon" style="z-index: 2;" class="container">
+  <app-coming-soon></app-coming-soon>
+  <app-joke></app-joke>
+  <img class="santaHat" src="../assets/santa_hat.webp" alt="">
+</div>
 
 <audio #audio controls>
   <source src="../assets/feher_karacsony.mp3" type="audio/mp3">

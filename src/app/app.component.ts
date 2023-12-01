@@ -4,18 +4,20 @@ import { RouterOutlet } from '@angular/router';
 import { UserSelectorComponent } from './user-selector/user-selector.component';
 import { JokeComponent } from './joke/joke.component';
 import { DrawComponent } from './draw/draw.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, UserSelectorComponent, JokeComponent, DrawComponent],
+  imports: [CommonModule, RouterOutlet, UserSelectorComponent, JokeComponent, DrawComponent, ComingSoonComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
     fwEnabled = true;
+    comingSoon = true;
     step = signal(0);
     name = signal('');
     @ViewChild('audio') audioPlayer! : ElementRef<HTMLAudioElement>;
