@@ -17,7 +17,7 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 })
 export class AppComponent {
     fwEnabled = true;
-    comingSoon = true;
+    comingSoon = false;
     step = signal(0);
     name = signal('');
     @ViewChild('audio') audioPlayer! : ElementRef<HTMLAudioElement>;
